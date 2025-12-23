@@ -1,0 +1,1692 @@
+global proc shelf_Custom () {
+    global string $gBuffStr;
+    global string $gBuffStr0;
+    global string $gBuffStr1;
+
+
+    shelfButton
+        -enableCommandRepeat 1
+        -flexibleWidthType 3
+        -flexibleWidthValue 32
+        -enable 1
+        -width 35
+        -height 34
+        -manage 1
+        -visible 1
+        -preventOverride 0
+        -annotation "Import custom scripts" 
+        -enableBackground 0
+        -backgroundColor 0 0 0 
+        -highlightColor 0.321569 0.521569 0.65098 
+        -align "center" 
+        -label "Import scripts" 
+        -labelOffset 0
+        -rotation 0
+        -flipX 0
+        -flipY 0
+        -useAlpha 1
+        -font "plainLabelFont" 
+        -overlayLabelColor 0.8 0.8 0.8 
+        -overlayLabelBackColor 0 0 0 0.5 
+        -image "C:/Users/mverclytte/Documents/maya/2024/prefs/icons/python.png" 
+        -image1 "C:/Users/mverclytte/Documents/maya/2024/prefs/icons/python.png" 
+        -style "iconOnly" 
+        -marginWidth 0
+        -marginHeight 1
+        -command "import sys\nfrom importlib import reload\n\n\npath = r\"N:\\sandbox\\mverclytte\"\n\n\nif not path in sys.path:\n    sys.path.append(path)\nimport shelf\nreload(shelf)" 
+        -sourceType "python" 
+        -commandRepeatable 1
+        -flat 1
+    ;
+    shelfButton
+        -enableCommandRepeat 1
+        -flexibleWidthType 3
+        -flexibleWidthValue 32
+        -enable 1
+        -width 35
+        -height 34
+        -manage 1
+        -visible 1
+        -preventOverride 0
+        -annotation "CONTROLLERS ----------" 
+        -enableBackground 0
+        -backgroundColor 0 0 0 
+        -highlightColor 0.321569 0.521569 0.65098 
+        -align "center" 
+        -label "CONTROLLERS ----------" 
+        -labelOffset 0
+        -rotation 0
+        -flipX 0
+        -flipY 0
+        -useAlpha 1
+        -font "plainLabelFont" 
+        -overlayLabelColor 0.8 0.8 0.8 
+        -overlayLabelBackColor 0 0 0 0.5 
+        -image "C:/Users/mverclytte/Documents/maya/2024/prefs/icons/separator.png" 
+        -image1 "C:/Users/mverclytte/Documents/maya/2024/prefs/icons/separator.png" 
+        -style "iconOnly" 
+        -marginWidth 0
+        -marginHeight 1
+        -sourceType "mel" 
+        -commandRepeatable 1
+        -flat 1
+    ;
+    shelfButton
+        -enableCommandRepeat 1
+        -flexibleWidthType 3
+        -flexibleWidthValue 32
+        -enable 1
+        -width 35
+        -height 34
+        -manage 1
+        -visible 1
+        -preventOverride 0
+        -annotation "Reset controllers" 
+        -enableBackground 0
+        -backgroundColor 0 0 0 
+        -highlightColor 0.321569 0.521569 0.65098 
+        -align "center" 
+        -label "Reset controllers" 
+        -labelOffset 0
+        -rotation 0
+        -flipX 0
+        -flipY 0
+        -useAlpha 1
+        -font "plainLabelFont" 
+        -overlayLabelColor 0.8 0.8 0.8 
+        -overlayLabelBackColor 0 0 0 0.5 
+        -image "C:/Users/mverclytte/Documents/maya/2024/prefs/icons/custom/reset_controllers.png" 
+        -image1 "C:/Users/mverclytte/Documents/maya/2024/prefs/icons/custom/reset_controllers.png" 
+        -style "iconOnly" 
+        -marginWidth 0
+        -marginHeight 1
+        -command "shelf.utils.reset_controller_selection(user_attr=False)" 
+        -sourceType "python" 
+        -doubleClickCommand "shelf.utils.reset_all_controllers(user_attr=False)" 
+        -commandRepeatable 1
+        -flat 1
+        -mi "RESET SEL | with user attrs" ( "shelf.utils.reset_controller_selection(user_attr=True)" )
+        -mip 0
+        -mi "RESET ALL | with user attrs" ( "shelf.utils.reset_all_controllers(user_attr=True)" )
+        -mip 1
+    ;
+    shelfButton
+        -enableCommandRepeat 1
+        -flexibleWidthType 3
+        -flexibleWidthValue 32
+        -enable 1
+        -width 35
+        -height 34
+        -manage 1
+        -visible 1
+        -preventOverride 0
+        -annotation "Mirror CVs" 
+        -enableBackground 0
+        -backgroundColor 0 0 0 
+        -highlightColor 0.321569 0.521569 0.65098 
+        -align "center" 
+        -label "Mirror CVs" 
+        -labelOffset 0
+        -rotation 0
+        -flipX 0
+        -flipY 0
+        -useAlpha 1
+        -font "plainLabelFont" 
+        -overlayLabelColor 0.8 0.8 0.8 
+        -overlayLabelBackColor 0 0 0 0.5 
+        -image "C:/Users/mverclytte/Documents/maya/2024/prefs/icons/mirror_cvs.png" 
+        -image1 "C:/Users/mverclytte/Documents/maya/2024/prefs/icons/mirror_cvs.png" 
+        -style "iconOnly" 
+        -marginWidth 0
+        -marginHeight 1
+        -command "selection = shelf.utils.get_selection_flatten()\nshelf.utils.mirror_cvs(selection, mode=\"x\", replaces=(\"LR\"))" 
+        -sourceType "python" 
+        -doubleClickCommand "shelf.utils.mirror_cvs(cmds.ls(\"L_*_ctrl.cv[*]\", flatten=True), mode=\"x\", replaces=(\"LR\"))" 
+        -commandRepeatable 1
+        -flat 1
+    ;
+    shelfButton
+        -enableCommandRepeat 1
+        -flexibleWidthType 3
+        -flexibleWidthValue 32
+        -enable 1
+        -width 35
+        -height 34
+        -manage 1
+        -visible 1
+        -preventOverride 0
+        -annotation "Reset CVs to local axis" 
+        -enableBackground 0
+        -backgroundColor 0 0 0 
+        -highlightColor 0.321569 0.521569 0.65098 
+        -align "center" 
+        -label "Reset CVs" 
+        -labelOffset 0
+        -rotation 0
+        -flipX 0
+        -flipY 0
+        -useAlpha 1
+        -font "plainLabelFont" 
+        -overlayLabelColor 0.8 0.8 0.8 
+        -overlayLabelBackColor 0 0 0 0.5 
+        -image "C:/Users/mverclytte/Documents/maya/2024/prefs/icons/reset_cvs_to_axis.png" 
+        -image1 "C:/Users/mverclytte/Documents/maya/2024/prefs/icons/reset_cvs_to_axis.png" 
+        -style "iconOnly" 
+        -marginWidth 0
+        -marginHeight 1
+        -command "shelf.utils.reset_cvs_to_local_axis()" 
+        -sourceType "python" 
+        -commandRepeatable 1
+        -flat 1
+    ;
+    shelfButton
+        -enableCommandRepeat 1
+        -flexibleWidthType 3
+        -flexibleWidthValue 32
+        -enable 1
+        -width 35
+        -height 34
+        -manage 1
+        -visible 1
+        -preventOverride 0
+        -annotation "Selection to CVs" 
+        -enableBackground 0
+        -backgroundColor 0 0 0 
+        -highlightColor 0.321569 0.521569 0.65098 
+        -align "center" 
+        -label "Select CVs" 
+        -labelOffset 0
+        -rotation 0
+        -flipX 0
+        -flipY 0
+        -useAlpha 1
+        -font "plainLabelFont" 
+        -overlayLabelColor 0.8 0.8 0.8 
+        -overlayLabelBackColor 0 0 0 0.5 
+        -image "C:/Users/mverclytte/Documents/maya/2024/prefs/icons/to_cvs.png" 
+        -image1 "C:/Users/mverclytte/Documents/maya/2024/prefs/icons/to_cvs.png" 
+        -style "iconOnly" 
+        -marginWidth 0
+        -marginHeight 1
+        -command "shelf.utils.selection_to_cvs()" 
+        -sourceType "python" 
+        -commandRepeatable 1
+        -flat 1
+    ;
+    shelfButton
+        -enableCommandRepeat 1
+        -flexibleWidthType 3
+        -flexibleWidthValue 32
+        -enable 1
+        -width 35
+        -height 34
+        -manage 1
+        -visible 1
+        -preventOverride 0
+        -annotation "Set controller ratio" 
+        -enableBackground 0
+        -backgroundColor 0 0 0 
+        -highlightColor 0.321569 0.521569 0.65098 
+        -align "center" 
+        -label "Ratio controllers" 
+        -labelOffset 0
+        -rotation 0
+        -flipX 0
+        -flipY 0
+        -useAlpha 1
+        -font "plainLabelFont" 
+        -overlayLabelColor 0.8 0.8 0.8 
+        -overlayLabelBackColor 0 0 0 0.5 
+        -image "C:/Users/mverclytte/Documents/maya/2024/prefs/icons/ctrl_ratio.png" 
+        -image1 "C:/Users/mverclytte/Documents/maya/2024/prefs/icons/ctrl_ratio.png" 
+        -style "iconOnly" 
+        -marginWidth 0
+        -marginHeight 1
+        -command "shelf.utils.create_ctrl_shape_ratio_attr()" 
+        -sourceType "python" 
+        -commandRepeatable 1
+        -flat 1
+        -mi "CREATE ratio attr" ( "shelf.utils.create_ctrl_shape_ratio_attr()" )
+        -mip 0
+        -mi "CLEANUP" ( "shelf.utils.cleanup_ctrl_shape_ratio_attr()" )
+        -mip 1
+    ;
+    shelfButton
+        -enableCommandRepeat 1
+        -flexibleWidthType 3
+        -flexibleWidthValue 32
+        -enable 1
+        -width 35
+        -height 34
+        -manage 1
+        -visible 1
+        -preventOverride 0
+        -annotation "TRANSFORMS ----------" 
+        -enableBackground 0
+        -backgroundColor 0 0 0 
+        -highlightColor 0.321569 0.521569 0.65098 
+        -align "center" 
+        -label "TRANSFORMS ----------" 
+        -labelOffset 0
+        -rotation 0
+        -flipX 0
+        -flipY 0
+        -useAlpha 1
+        -font "plainLabelFont" 
+        -overlayLabelColor 0.8 0.8 0.8 
+        -overlayLabelBackColor 0 0 0 0.5 
+        -image "C:/Users/mverclytte/Documents/maya/2024/prefs/icons/separator.png" 
+        -image1 "C:/Users/mverclytte/Documents/maya/2024/prefs/icons/separator.png" 
+        -style "iconOnly" 
+        -marginWidth 0
+        -marginHeight 1
+        -command "print(\"User defined macro\");" 
+        -sourceType "mel" 
+        -commandRepeatable 1
+        -flat 1
+    ;
+    shelfButton
+        -enableCommandRepeat 1
+        -flexibleWidthType 3
+        -flexibleWidthValue 32
+        -enable 1
+        -width 35
+        -height 34
+        -manage 1
+        -visible 1
+        -preventOverride 0
+        -annotation "Reset selected objects" 
+        -enableBackground 0
+        -backgroundColor 0 0 0 
+        -highlightColor 0.321569 0.521569 0.65098 
+        -align "center" 
+        -label "Reset obj" 
+        -labelOffset 0
+        -rotation 0
+        -flipX 0
+        -flipY 0
+        -useAlpha 1
+        -font "plainLabelFont" 
+        -overlayLabelColor 0.8 0.8 0.8 
+        -overlayLabelBackColor 0 0 0 0.5 
+        -image "C:/Users/mverclytte/Documents/maya/2024/prefs/icons/reset_object.png" 
+        -image1 "C:/Users/mverclytte/Documents/maya/2024/prefs/icons/reset_object.png" 
+        -style "iconOnly" 
+        -marginWidth 0
+        -marginHeight 1
+        -command "shelf.utils.reset_selection(user_attr=False)" 
+        -sourceType "python" 
+        -commandRepeatable 1
+        -flat 1
+        -mi "TRANSLATES" ( "shelf.utils.reset_selection(reset_attrs=[\"translate\"], user_attr=False)" )
+        -mip 0
+        -mi "ROTATES" ( "shelf.utils.reset_selection(reset_attrs=[\"rotate\"], user_attr=False)" )
+        -mip 1
+        -mi "SCALES" ( "shelf.utils.reset_selection(reset_attrs=[\"scale\"], user_attr=False)" )
+        -mip 2
+        -mi "ALL | Bypass locked" ( "shelf.utils.reset_selection(user_attr=False, force_locked=True)" )
+        -mip 3
+    ;
+    shelfButton
+        -enableCommandRepeat 1
+        -flexibleWidthType 3
+        -flexibleWidthValue 32
+        -enable 1
+        -width 35
+        -height 34
+        -manage 1
+        -visible 1
+        -preventOverride 0
+        -annotation "Match transforms" 
+        -enableBackground 0
+        -backgroundColor 0 0 0 
+        -highlightColor 0.321569 0.521569 0.65098 
+        -align "center" 
+        -label "Match Transforms" 
+        -labelOffset 0
+        -rotation 0
+        -flipX 0
+        -flipY 0
+        -useAlpha 1
+        -font "plainLabelFont" 
+        -overlayLabelColor 0.8 0.8 0.8 
+        -overlayLabelBackColor 0 0 0 0.5 
+        -image "C:/Users/mverclytte/Documents/maya/2024/prefs/icons/match.png" 
+        -image1 "C:/Users/mverclytte/Documents/maya/2024/prefs/icons/match.png" 
+        -style "iconOnly" 
+        -marginWidth 0
+        -marginHeight 1
+        -command "sel = shelf.utils.get_selection()\nshelf.utils.matrix_match_transforms(sel[0], sel[1])" 
+        -sourceType "python" 
+        -doubleClickCommand "MatchTransformOptions" 
+        -commandRepeatable 1
+        -flat 1
+        -mi "AVERAGE - ALL | xform match" ( "sel = shelf.utils.get_selection_flatten()\nshelf.utils.xform_average_match_transforms(sel[0], sel[1:])" )
+        -mip 0
+        -mi "AVERAGE - TRANSLATES | xform match" ( "sel = shelf.utils.get_selection_flatten()\nshelf.utils.xform_average_match_transforms(sel[0], sel[1:], [\"translation\"])" )
+        -mip 1
+        -mi "AVERAGE - ROTATES | xform match" ( "sel = shelf.utils.get_selection_flatten()\nshelf.utils.xform_average_match_transforms(sel[0], sel[1:], [\"rotation\"])" )
+        -mip 2
+    ;
+    shelfButton
+        -enableCommandRepeat 1
+        -flexibleWidthType 3
+        -flexibleWidthValue 32
+        -enable 1
+        -width 35
+        -height 34
+        -manage 1
+        -visible 1
+        -preventOverride 0
+        -annotation "Freeze transforms" 
+        -enableBackground 0
+        -backgroundColor 0 0 0 
+        -highlightColor 0.321569 0.521569 0.65098 
+        -align "center" 
+        -label "Freeze Transforms" 
+        -labelOffset 0
+        -rotation 0
+        -flipX 0
+        -flipY 0
+        -useAlpha 1
+        -font "plainLabelFont" 
+        -overlayLabelColor 0.8 0.8 0.8 
+        -overlayLabelBackColor 0 0 0 0.5 
+        -image "C:/Users/mverclytte/Documents/maya/2024/prefs/icons/freeze.png" 
+        -image1 "C:/Users/mverclytte/Documents/maya/2024/prefs/icons/freeze.png" 
+        -style "iconOnly" 
+        -marginWidth 0
+        -marginHeight 1
+        -command "FreezeTransformations" 
+        -sourceType "mel" 
+        -doubleClickCommand "FreezeTransformationsOptions" 
+        -commandRepeatable 1
+        -flat 1
+    ;
+    shelfButton
+        -enableCommandRepeat 1
+        -flexibleWidthType 3
+        -flexibleWidthValue 32
+        -enable 1
+        -width 35
+        -height 34
+        -manage 1
+        -visible 1
+        -preventOverride 0
+        -annotation "Mirror or Flip selected" 
+        -enableBackground 0
+        -backgroundColor 0 0 0 
+        -highlightColor 0.321569 0.521569 0.65098 
+        -align "center" 
+        -label "Mirror obj" 
+        -labelOffset 0
+        -rotation 0
+        -flipX 0
+        -flipY 0
+        -useAlpha 1
+        -font "plainLabelFont" 
+        -overlayLabelColor 0.8 0.8 0.8 
+        -overlayLabelBackColor 0 0 0 0.5 
+        -image "C:/Users/mverclytte/Documents/maya/2024/prefs/icons/mirror_obj.png" 
+        -image1 "C:/Users/mverclytte/Documents/maya/2024/prefs/icons/mirror_obj.png" 
+        -style "iconOnly" 
+        -marginWidth 0
+        -marginHeight 1
+        -command "selection = shelf.utils.get_selection()\nfor obj in selection:\n\tshelf.utils.mirror_obj(obj)" 
+        -sourceType "python" 
+        -doubleClickCommand "selection = shelf.utils.get_selection()\nfor obj in selection:\n\tshelf.utils.mirror_obj(obj, invert=False)" 
+        -commandRepeatable 1
+        -flat 1
+        -mi "FLIP" ( "selection = shelf.utils.get_selection()\nfor obj in selection:\n\tshelf.utils.flip_obj(obj)" )
+        -mip 0
+        -mi "MIRROR | .tx  .ry  .rz" ( "selection = shelf.utils.get_selection()\nfor obj in selection:\n\tshelf.utils.mirror_obj(obj, attrs=(\"tx\", \"ry\", \"rz\"))" )
+        -mip 1
+    ;
+    shelfButton
+        -enableCommandRepeat 1
+        -flexibleWidthType 3
+        -flexibleWidthValue 32
+        -enable 1
+        -width 35
+        -height 34
+        -manage 1
+        -visible 1
+        -preventOverride 0
+        -annotation "SKINNING ----------" 
+        -enableBackground 0
+        -backgroundColor 0 0 0 
+        -highlightColor 0.321569 0.521569 0.65098 
+        -align "center" 
+        -label "SKINNING ----------" 
+        -labelOffset 0
+        -rotation 0
+        -flipX 0
+        -flipY 0
+        -useAlpha 1
+        -font "plainLabelFont" 
+        -overlayLabelColor 0.8 0.8 0.8 
+        -overlayLabelBackColor 0 0 0 0.5 
+        -image "C:/Users/mverclytte/Documents/maya/2024/prefs/icons/separator.png" 
+        -image1 "C:/Users/mverclytte/Documents/maya/2024/prefs/icons/separator.png" 
+        -style "iconOnly" 
+        -marginWidth 0
+        -marginHeight 1
+        -sourceType "mel" 
+        -commandRepeatable 1
+        -flat 1
+    ;
+    shelfButton
+        -enableCommandRepeat 1
+        -flexibleWidthType 1
+        -flexibleWidthValue 32
+        -enable 1
+        -width 34
+        -height 34
+        -manage 1
+        -visible 1
+        -preventOverride 0
+        -annotation "NGskintool" 
+        -enableBackground 0
+        -backgroundColor 0 0 0 
+        -highlightColor 0.321569 0.521569 0.65098 
+        -align "center" 
+        -label "Ngskintools" 
+        -labelOffset 0
+        -rotation 0
+        -flipX 0
+        -flipY 0
+        -useAlpha 1
+        -font "plainLabelFont" 
+        -overlayLabelColor 0 0 0 
+        -overlayLabelBackColor 0 0 0 0 
+        -image "C:/Users/mverclytte/Documents/maya/2024/prefs/icons/ng.png" 
+        -image1 "C:/Users/mverclytte/Documents/maya/2024/prefs/icons/ng.png" 
+        -style "iconOnly" 
+        -marginWidth 0
+        -marginHeight 1
+        -command "import ngSkinTools2; ngSkinTools2.open_ui()" 
+        -sourceType "python" 
+        -commandRepeatable 1
+        -flat 1
+    ;
+    shelfButton
+        -enableCommandRepeat 1
+        -flexibleWidthType 3
+        -flexibleWidthValue 32
+        -enable 1
+        -width 35
+        -height 34
+        -manage 1
+        -visible 1
+        -preventOverride 0
+        -annotation "Smooth bind skin" 
+        -enableBackground 0
+        -backgroundColor 0 0 0 
+        -highlightColor 0.321569 0.521569 0.65098 
+        -align "center" 
+        -label "Bind Skin" 
+        -labelOffset 0
+        -rotation 0
+        -flipX 0
+        -flipY 0
+        -useAlpha 1
+        -font "plainLabelFont" 
+        -overlayLabelColor 0.8 0.8 0.8 
+        -overlayLabelBackColor 0 0 0 0.5 
+        -image "C:/Users/mverclytte/Documents/maya/2024/prefs/icons/bind_skin.png" 
+        -image1 "C:/Users/mverclytte/Documents/maya/2024/prefs/icons/bind_skin.png" 
+        -style "iconOnly" 
+        -marginWidth 0
+        -marginHeight 1
+        -command "SmoothBindSkin" 
+        -sourceType "mel" 
+        -doubleClickCommand "SmoothBindSkinOptions" 
+        -commandRepeatable 1
+        -flat 1
+        -mi "UNBIND" ( "DetachSkin" )
+    ;
+    shelfButton
+        -enableCommandRepeat 1
+        -flexibleWidthType 3
+        -flexibleWidthValue 32
+        -enable 1
+        -width 35
+        -height 34
+        -manage 1
+        -visible 1
+        -preventOverride 0
+        -annotation "Copies skin weights. Source - > Destination" 
+        -enableBackground 0
+        -backgroundColor 0 0 0 
+        -highlightColor 0.321569 0.521569 0.65098 
+        -align "center" 
+        -label "Copy skin" 
+        -labelOffset 0
+        -rotation 0
+        -flipX 0
+        -flipY 0
+        -useAlpha 1
+        -font "plainLabelFont" 
+        -overlayLabelColor 0.8 0.8 0.8 
+        -overlayLabelBackColor 0 0 0 0.5 
+        -image "C:/Users/mverclytte/Documents/maya/2024/prefs/icons/copy_skin.png" 
+        -image1 "C:/Users/mverclytte/Documents/maya/2024/prefs/icons/copy_skin.png" 
+        -style "iconOnly" 
+        -marginWidth 0
+        -marginHeight 1
+        -command "shelf.utils.copy_skincluster_callback(method=\"closestPoint\")" 
+        -sourceType "python" 
+        -commandRepeatable 1
+        -flat 1
+        -mi "COPY NG Layers | vertex ID" ( "shelf.utils.transfer_ng_layers(\"vertexId\")" )
+        -mip 0
+        -mi "COPY NG Layers | closest point" ( "shelf.utils.transfer_ng_layers()" )
+        -mip 1
+        -mi "COPY NG Layers | vertex ID and Keep Layers" ( "shelf.utils.transfer_ng_layers(\"vertexId\", keep_layers=True)" )
+        -mip 2
+        -mi "COPY NG Layers | closest point and Keep Layers" ( "shelf.utils.transfer_ng_layers(keep_layers=True)" )
+        -mip 3
+        -mi "COPY CUSTOM | closest point" ( "shelf.utils.transfer_points_weights_from_sel()" )
+        -mip 4
+    ;
+    shelfButton
+        -enableCommandRepeat 1
+        -flexibleWidthType 3
+        -flexibleWidthValue 32
+        -enable 1
+        -width 35
+        -height 34
+        -manage 1
+        -visible 1
+        -preventOverride 0
+        -annotation "Mirror skin" 
+        -enableBackground 0
+        -backgroundColor 0 0 0 
+        -highlightColor 0.321569 0.521569 0.65098 
+        -align "center" 
+        -label "Mirror skin" 
+        -labelOffset 0
+        -rotation 0
+        -flipX 0
+        -flipY 0
+        -useAlpha 1
+        -font "plainLabelFont" 
+        -overlayLabelColor 0.8 0.8 0.8 
+        -overlayLabelBackColor 0 0 0 0.5 
+        -image "C:/Users/mverclytte/Documents/maya/2024/prefs/icons/mirror_skin.png" 
+        -image1 "C:/Users/mverclytte/Documents/maya/2024/prefs/icons/mirror_skin.png" 
+        -style "iconOnly" 
+        -marginWidth 0
+        -marginHeight 1
+        -command "MirrorDeformerWeights" 
+        -sourceType "mel" 
+        -doubleClickCommand "MirrorDeformerWeightsOptions" 
+        -commandRepeatable 1
+        -flat 1
+        -mi "SYM MESH | vertex ID" ( "sel = shelf.utils.get_selection()\nshelf.utils.transfer_skincluster_to_mirrored_mesh(sel[0], sel[1], \"vertexId\")" )
+        -mip 0
+        -mi "SYM MESH | closest point" ( "sel = shelf.utils.get_selection()\nshelf.utils.transfer_skincluster_to_mirrored_mesh(sel[0], sel[1], \"closestPoint\")" )
+        -mip 1
+        -mi "SYM MESH | vertex ID and Keep Layers" ( "sel = shelf.utils.get_selection()\nshelf.utils.transfer_skincluster_to_mirrored_mesh(sel[0], sel[1], \"vertexId\", True)" )
+        -mip 2
+        -mi "SYM MESH | closest point and Keep Layers" ( "sel = shelf.utils.get_selection()\nshelf.utils.transfer_skincluster_to_mirrored_mesh(sel[0], sel[1], \"closestPoint\", True)" )
+        -mip 3
+        -mi "MIRROR NG Layers | By names" ( "shelf.utils.mirror_ng_layers()" )
+        -mip 4
+        -mi "ADD MIRROR JOINTS | L -> R" ( "shelf.utils.add_sym_joints_to_skincluster()" )
+        -mip 5
+    ;
+    shelfButton
+        -enableCommandRepeat 1
+        -flexibleWidthType 3
+        -flexibleWidthValue 32
+        -enable 1
+        -width 35
+        -height 34
+        -manage 1
+        -visible 1
+        -preventOverride 0
+        -annotation "STIM ----------" 
+        -enableBackground 0
+        -backgroundColor 0 0 0 
+        -highlightColor 0.321569 0.521569 0.65098 
+        -align "center" 
+        -label "STIM ----------" 
+        -labelOffset 0
+        -rotation 0
+        -flipX 0
+        -flipY 0
+        -useAlpha 1
+        -font "plainLabelFont" 
+        -overlayLabelColor 0.8 0.8 0.8 
+        -overlayLabelBackColor 0 0 0 0.5 
+        -image "C:/Users/mverclytte/Documents/maya/2024/prefs/icons/separator.png" 
+        -image1 "C:/Users/mverclytte/Documents/maya/2024/prefs/icons/separator.png" 
+        -style "iconOnly" 
+        -marginWidth 0
+        -marginHeight 1
+        -sourceType "mel" 
+        -commandRepeatable 1
+        -flat 1
+    ;
+    shelfButton
+        -enableCommandRepeat 1
+        -flexibleWidthType 3
+        -flexibleWidthValue 32
+        -enable 1
+        -width 35
+        -height 34
+        -manage 1
+        -visible 1
+        -preventOverride 0
+        -annotation "Body tools" 
+        -enableBackground 0
+        -backgroundColor 0 0 0 
+        -highlightColor 0.321569 0.521569 0.65098 
+        -align "center" 
+        -label "Body tools" 
+        -labelOffset 0
+        -rotation 0
+        -flipX 0
+        -flipY 0
+        -useAlpha 1
+        -font "plainLabelFont" 
+        -overlayLabelColor 0.8 0.8 0.8 
+        -overlayLabelBackColor 0 0 0 0.5 
+        -image "C:/Users/mverclytte/Documents/maya/2024/prefs/icons/autorig.png" 
+        -image1 "C:/Users/mverclytte/Documents/maya/2024/prefs/icons/autorig.png" 
+        -style "iconOnly" 
+        -marginWidth 0
+        -marginHeight 1
+        -command "import autorig.ui.main_window\nwin = autorig.ui.main_window.show()" 
+        -sourceType "python" 
+        -commandRepeatable 1
+        -flat 1
+        -mi "AUTORIG" ( "import autorig.ui.main_window\nwin = autorig.ui.main_window.show()" )
+        -mip 0
+        -mi "--------------------" ( "" )
+        -mi "WEIGHT DRIVERS" ( "forget(\"rig\")\nforget(\"autorig\")\nfrom autorig.ui.weight_drivers import toolbox\ntoolbox.show()" )
+        -mip 2
+    ;
+    shelfButton
+        -enableCommandRepeat 1
+        -flexibleWidthType 3
+        -flexibleWidthValue 32
+        -enable 1
+        -width 35
+        -height 34
+        -manage 1
+        -visible 1
+        -preventOverride 0
+        -annotation "Facial tools" 
+        -enableBackground 0
+        -backgroundColor 0 0 0 
+        -highlightColor 0.321569 0.521569 0.65098 
+        -align "center" 
+        -label "Facial tools" 
+        -labelOffset 0
+        -rotation 0
+        -flipX 0
+        -flipY 0
+        -useAlpha 1
+        -font "plainLabelFont" 
+        -overlayLabelColor 0.8 0.8 0.8 
+        -overlayLabelBackColor 0 0 0 0 
+        -image "C:/Users/mverclytte/Documents/maya/2024/prefs/icons/custom/bcs.png" 
+        -image1 "C:/Users/mverclytte/Documents/maya/2024/prefs/icons/custom/bcs.png" 
+        -style "iconOnly" 
+        -marginWidth 0
+        -marginHeight 1
+        -command "DPK_bcsUI" 
+        -sourceType "mel" 
+        -commandRepeatable 1
+        -flat 1
+        -mi "BCS" ( "DPK_bcsUI" )
+        -mi "--------------------" ( "" )
+        -mi "RIBBONS" ( "from stim_ribbon.ui import main_window\nmain_window.show()" )
+        -mip 2
+        -mi "TWEAKERS" ( "shelf.tweaker.show_tweaker_ui()" )
+        -mip 3
+        -mi "EYELASH" ( "if \"N:/tools/maya/python\" not in sys.path:\n\tsys.path.append(\"N:/tools/maya/python\")\n\nfrom stim_td_tools.eyelash_tool import ui\nui.showEyelashTool()" )
+        -mip 4
+        -mi "MOUTH" ( "import stim.tools.mouth_rigger\nstim.tools.mouth_rigger.show()" )
+        -mip 5
+        -mi "UPDATE MOUTH | Edges rivet setup" ( "shelf.mouth.update_inside_mouth_setup()" )
+        -mip 6
+        -mi "UPDATE EDGES | Edges rivet setup" ( "shelf.mouth.update_rivet_edges()" )
+        -mip 7
+        -mi "--------------------" ( "" )
+        -mi "MIRROR CTRLS" ( "shelf.utils.mirror_controllers()" )
+        -mip 9
+        -mi "MIRROR JOINTS" ( "shelf.utils.mirror_joints()" )
+        -mip 10
+        -mi "MIRROR JOINTS UI" ( "if \"N:/tools/maya/python\" not in sys.path:\n\tsys.path.append(\"N:/tools/maya/python\")\n\nfrom stim_td_tools.mirror_joints import ui\nui.showMirrorJointsTool()" )
+        -mip 11
+        -mi "--------------------" ( "" )
+        -mi "NAME CHECKER" ( "if \"N:/tools/maya/python\" not in sys.path:\n\tsys.path.append(\"N:/tools/maya/python\")\n\nimport stim_td_tools.facerig_name_checker as mod\nmod.main()" )
+        -mip 13
+        -mi "CLEANUP" ( "shelf.utils.clean_facial_scene()" )
+        -mip 14
+    ;
+    shelfButton
+        -enableCommandRepeat 1
+        -flexibleWidthType 3
+        -flexibleWidthValue 32
+        -enable 1
+        -width 35
+        -height 34
+        -manage 1
+        -visible 1
+        -preventOverride 0
+        -annotation "Controllers Tool Box" 
+        -enableBackground 0
+        -backgroundColor 0 0 0 
+        -highlightColor 0.321569 0.521569 0.65098 
+        -align "center" 
+        -label "Controller tool box" 
+        -labelOffset 0
+        -rotation 0
+        -flipX 0
+        -flipY 0
+        -useAlpha 1
+        -font "plainLabelFont" 
+        -overlayLabelColor 0.8 0.8 0.8 
+        -overlayLabelBackColor 0 0 0 0.5 
+        -image "C:/Users/mverclytte/Documents/maya/2024/prefs/icons/controller_tool_box.png" 
+        -image1 "C:/Users/mverclytte/Documents/maya/2024/prefs/icons/controller_tool_box.png" 
+        -style "iconOnly" 
+        -marginWidth 0
+        -marginHeight 1
+        -command "from StimTools.ndControlToolBox.src.ui import main_ui\n\nmain_ui.show()" 
+        -sourceType "python" 
+        -commandRepeatable 1
+        -flat 1
+    ;
+    shelfButton
+        -enableCommandRepeat 1
+        -flexibleWidthType 3
+        -flexibleWidthValue 32
+        -enable 1
+        -width 35
+        -height 34
+        -manage 1
+        -visible 1
+        -preventOverride 0
+        -annotation "Weight Manager" 
+        -enableBackground 0
+        -backgroundColor 0 0 0 
+        -highlightColor 0.321569 0.521569 0.65098 
+        -align "center" 
+        -label "Weight manager" 
+        -labelOffset 0
+        -rotation 0
+        -flipX 0
+        -flipY 0
+        -useAlpha 1
+        -font "plainLabelFont" 
+        -overlayLabelColor 0.8 0.8 0.8 
+        -overlayLabelBackColor 0 0 0 0.5 
+        -image "C:/Users/mverclytte/Documents/maya/2024/prefs/icons/weight_manager.png" 
+        -image1 "C:/Users/mverclytte/Documents/maya/2024/prefs/icons/weight_manager.png" 
+        -style "iconOnly" 
+        -marginWidth 0
+        -marginHeight 1
+        -command "from stim.tools.weight_manager.ui import main_ui\nwin = main_ui.show()\n" 
+        -sourceType "python" 
+        -commandRepeatable 1
+        -flat 1
+    ;
+    shelfButton
+        -enableCommandRepeat 1
+        -flexibleWidthType 3
+        -flexibleWidthValue 32
+        -enable 1
+        -width 35
+        -height 34
+        -manage 1
+        -visible 1
+        -preventOverride 0
+        -annotation "Renamer" 
+        -enableBackground 0
+        -backgroundColor 0 0 0 
+        -highlightColor 0.321569 0.521569 0.65098 
+        -align "center" 
+        -label "Renamer" 
+        -labelOffset 0
+        -rotation 0
+        -flipX 0
+        -flipY 0
+        -useAlpha 1
+        -font "plainLabelFont" 
+        -overlayLabelColor 0.8 0.8 0.8 
+        -overlayLabelBackColor 0 0 0 0.5 
+        -image "C:/Users/mverclytte/Documents/maya/2024/prefs/icons/rename.png" 
+        -image1 "C:/Users/mverclytte/Documents/maya/2024/prefs/icons/rename.png" 
+        -style "iconOnly" 
+        -marginWidth 0
+        -marginHeight 1
+        -command "import stim.tools.renamer\nstim.tools.renamer.show()" 
+        -sourceType "python" 
+        -commandRepeatable 1
+        -flat 1
+    ;
+    shelfButton
+        -enableCommandRepeat 1
+        -flexibleWidthType 3
+        -flexibleWidthValue 32
+        -enable 1
+        -width 35
+        -height 34
+        -manage 1
+        -visible 1
+        -preventOverride 0
+        -annotation "EXTRAS ----------" 
+        -enableBackground 0
+        -backgroundColor 0 0 0 
+        -highlightColor 0.321569 0.521569 0.65098 
+        -align "center" 
+        -label "EXTRAS ----------" 
+        -labelOffset 0
+        -rotation 0
+        -flipX 0
+        -flipY 0
+        -useAlpha 1
+        -font "plainLabelFont" 
+        -overlayLabelColor 0.8 0.8 0.8 
+        -overlayLabelBackColor 0 0 0 0.5 
+        -image "C:/Users/mverclytte/Documents/maya/2024/prefs/icons/separator.png" 
+        -image1 "C:/Users/mverclytte/Documents/maya/2024/prefs/icons/separator.png" 
+        -style "iconOnly" 
+        -marginWidth 0
+        -marginHeight 1
+        -command "\n" 
+        -sourceType "mel" 
+        -commandRepeatable 1
+        -flat 1
+    ;
+    shelfButton
+        -enableCommandRepeat 1
+        -flexibleWidthType 3
+        -flexibleWidthValue 32
+        -enable 1
+        -width 35
+        -height 34
+        -manage 1
+        -visible 1
+        -preventOverride 0
+        -annotation "Attributes utils" 
+        -enableBackground 0
+        -backgroundColor 0 0 0 
+        -highlightColor 0.321569 0.521569 0.65098 
+        -align "center" 
+        -label "Attributes" 
+        -labelOffset 0
+        -rotation 0
+        -flipX 0
+        -flipY 0
+        -useAlpha 1
+        -font "plainLabelFont" 
+        -overlayLabelColor 0.8 0.8 0.8 
+        -overlayLabelBackColor 0 0 0 0.5 
+        -image "C:/Users/mverclytte/Documents/maya/2024/prefs/icons/attribute.png" 
+        -image1 "C:/Users/mverclytte/Documents/maya/2024/prefs/icons/attribute.png" 
+        -style "iconOnly" 
+        -marginWidth 0
+        -marginHeight 1
+        -sourceType "mel" 
+        -commandRepeatable 1
+        -flat 1
+        -mi "SET DEFAULT VALUE" ( "shelf.utils.set_current_value_as_default()" )
+        -mip 0
+    ;
+    shelfButton
+        -enableCommandRepeat 1
+        -flexibleWidthType 3
+        -flexibleWidthValue 32
+        -enable 1
+        -width 35
+        -height 34
+        -manage 1
+        -visible 1
+        -preventOverride 0
+        -annotation "Add offset group" 
+        -enableBackground 0
+        -backgroundColor 0 0 0 
+        -highlightColor 0.321569 0.521569 0.65098 
+        -align "center" 
+        -label "Add offset" 
+        -labelOffset 0
+        -rotation 0
+        -flipX 0
+        -flipY 0
+        -useAlpha 1
+        -font "plainLabelFont" 
+        -overlayLabelColor 0.8 0.8 0.8 
+        -overlayLabelBackColor 0 0 0 0.5 
+        -image "C:/Users/mverclytte/Documents/maya/2024/prefs/icons/add_offset.png" 
+        -image1 "C:/Users/mverclytte/Documents/maya/2024/prefs/icons/add_offset.png" 
+        -style "iconOnly" 
+        -marginWidth 0
+        -marginHeight 1
+        -command "sel = shelf.utils.get_selection()\nfor obj in sel:\n\tshelf.utils.add_offset(obj, suffix=\"offset\", remove_obj_suffix=True)" 
+        -sourceType "python" 
+        -doubleClickCommand "sel = shelf.utils.get_selection()\nfor obj in sel:\n\tshelf.utils.add_offset(obj, suffix=\"offset\", remove_obj_suffix=False)" 
+        -commandRepeatable 1
+        -flat 1
+    ;
+    shelfButton
+        -enableCommandRepeat 1
+        -flexibleWidthType 3
+        -flexibleWidthValue 32
+        -enable 1
+        -width 35
+        -height 34
+        -manage 1
+        -visible 1
+        -preventOverride 0
+        -annotation "Create locator" 
+        -enableBackground 0
+        -backgroundColor 0 0 0 
+        -highlightColor 0.321569 0.521569 0.65098 
+        -align "center" 
+        -label "Locator" 
+        -labelOffset 0
+        -rotation 0
+        -flipX 0
+        -flipY 0
+        -useAlpha 1
+        -font "plainLabelFont" 
+        -overlayLabelColor 0.8 0.8 0.8 
+        -overlayLabelBackColor 0 0 0 0.5 
+        -image "C:/Users/mverclytte/Documents/maya/2024/prefs/icons/locator.png" 
+        -image1 "C:/Users/mverclytte/Documents/maya/2024/prefs/icons/locator.png" 
+        -style "iconOnly" 
+        -marginWidth 0
+        -marginHeight 1
+        -command "sel = shelf.utils.get_selection()\nname = \"locator\"\nparent = None\nchild = None\nif sel:\n\tparent = sel[0]\n\tname = sel[0] + \"_locator\"\n\tif len(sel) > 1:\n\t\tchild = sel[1]\n\nshelf.utils.create_locator(name, parent, child, color=\"yellow\", scale=2)" 
+        -sourceType "python" 
+        -doubleClickCommand "sel = shelf.utils.get_selection()\nparent = None\nchild = None\nif sel:\n\tparent = sel[0]\n\tif len(sel) > 1:\n\t\tchild = sel[1]\n\nshelf.utils.create_locator(\"locator\", parent, child, color=\"red\", scale=2)" 
+        -commandRepeatable 1
+        -flat 1
+        -mi "DELETE TMP" ( "shelf.utils.delete_tmp()" )
+        -mip 0
+        -mi "CREATE LOCS | On all ctrls" ( "shelf.utils.create_locator_on_all_ctrls()" )
+        -mip 1
+    ;
+    shelfButton
+        -enableCommandRepeat 1
+        -flexibleWidthType 3
+        -flexibleWidthValue 32
+        -enable 1
+        -width 35
+        -height 34
+        -manage 1
+        -visible 1
+        -preventOverride 0
+        -annotation "Create TMP sphere on selected" 
+        -enableBackground 0
+        -backgroundColor 0 0 0 
+        -highlightColor 0.321569 0.521569 0.65098 
+        -align "center" 
+        -label "Sphere" 
+        -labelOffset 0
+        -rotation 0
+        -flipX 0
+        -flipY 0
+        -useAlpha 1
+        -font "plainLabelFont" 
+        -overlayLabelColor 0.8 0.8 0.8 
+        -overlayLabelBackColor 0 0 0 0.5 
+        -image "C:/Users/mverclytte/Documents/maya/2024/prefs/icons/sphere.png" 
+        -image1 "C:/Users/mverclytte/Documents/maya/2024/prefs/icons/sphere.png" 
+        -style "iconOnly" 
+        -marginWidth 0
+        -marginHeight 1
+        -command "shelf.utils.create_sphere()\n" 
+        -sourceType "python" 
+        -doubleClickCommand "\n" 
+        -commandRepeatable 1
+        -flat 1
+        -mi "DELETE TMP" ( "shelf.utils.delete_tmp()" )
+        -mip 0
+    ;
+    shelfButton
+        -enableCommandRepeat 1
+        -flexibleWidthType 3
+        -flexibleWidthValue 32
+        -enable 1
+        -width 35
+        -height 34
+        -manage 1
+        -visible 1
+        -preventOverride 0
+        -annotation "Create joints on face center" 
+        -enableBackground 0
+        -backgroundColor 0 0 0 
+        -highlightColor 0.321569 0.521569 0.65098 
+        -align "center" 
+        -label "Joint on center" 
+        -labelOffset 0
+        -rotation 0
+        -flipX 0
+        -flipY 0
+        -useAlpha 1
+        -font "plainLabelFont" 
+        -overlayLabelColor 0.8 0.8 0.8 
+        -overlayLabelBackColor 0 0 0 0.5 
+        -image "C:/Users/mverclytte/Documents/maya/2024/prefs/icons/joint_on_center.png" 
+        -image1 "C:/Users/mverclytte/Documents/maya/2024/prefs/icons/joint_on_center.png" 
+        -style "iconOnly" 
+        -marginWidth 0
+        -marginHeight 1
+        -command "shelf.utils.create_joints_on_center_faces()" 
+        -sourceType "python" 
+        -commandRepeatable 1
+        -flat 1
+    ;
+    shelfButton
+        -enableCommandRepeat 1
+        -flexibleWidthType 3
+        -flexibleWidthValue 32
+        -enable 1
+        -width 35
+        -height 34
+        -manage 1
+        -visible 1
+        -preventOverride 0
+        -annotation "Joints size" 
+        -enableBackground 0
+        -backgroundColor 0 0 0 
+        -highlightColor 0.321569 0.521569 0.65098 
+        -align "center" 
+        -label "Joint Size" 
+        -labelOffset 0
+        -rotation 0
+        -flipX 0
+        -flipY 0
+        -useAlpha 1
+        -font "plainLabelFont" 
+        -overlayLabelColor 0.8 0.8 0.8 
+        -overlayLabelBackColor 0 0 0 0.5 
+        -image "C:/Users/mverclytte/Documents/maya/2024/prefs/icons/joint_size.png" 
+        -image1 "C:/Users/mverclytte/Documents/maya/2024/prefs/icons/joint_size.png" 
+        -style "iconOnly" 
+        -marginWidth 0
+        -marginHeight 1
+        -command "JdsWin" 
+        -sourceType "mel" 
+        -commandRepeatable 1
+        -flat 1
+        -mi "SCALE = 0.01" ( "jointDisplayScale 0.01;\n" )
+        -mi "SCALE = 0.05" ( "jointDisplayScale 0.05;\n" )
+        -mi "SCALE = 0.1" ( "jointDisplayScale 0.1;\n" )
+        -mi "SCALE = 0.5" ( "jointDisplayScale 0.5;\n" )
+        -mi "SCALE = 0.75" ( "jointDisplayScale 0.75;\n" )
+        -mi "SCALE = 1.0" ( "jointDisplayScale 1.0;\n" )
+    ;
+    shelfButton
+        -enableCommandRepeat 1
+        -flexibleWidthType 3
+        -flexibleWidthValue 32
+        -enable 1
+        -width 35
+        -height 34
+        -manage 1
+        -visible 1
+        -preventOverride 0
+        -annotation "BlendShape" 
+        -enableBackground 0
+        -backgroundColor 0 0 0 
+        -highlightColor 0.321569 0.521569 0.65098 
+        -align "center" 
+        -label "Blend Shape" 
+        -labelOffset 0
+        -rotation 0
+        -flipX 0
+        -flipY 0
+        -useAlpha 1
+        -font "plainLabelFont" 
+        -overlayLabelColor 0.8 0.8 0.8 
+        -overlayLabelBackColor 0 0 0 0.5 
+        -image "C:/Users/mverclytte/Documents/maya/2024/prefs/icons/blendshape.png" 
+        -image1 "C:/Users/mverclytte/Documents/maya/2024/prefs/icons/blendshape.png" 
+        -style "iconOnly" 
+        -marginWidth 0
+        -marginHeight 1
+        -command "shelf.utils.create_blendshape()" 
+        -sourceType "python" 
+        -doubleClickCommand "shelf.utils.create_delta_blendshape()" 
+        -commandRepeatable 1
+        -flat 1
+        -mi "INVERT | -1.0" ( "shelf.utils.create_blendshape(-1)" )
+        -mip 0
+        -mi "DELTA second" ( "shelf.utils.create_delta_blendshape(second_only=True)" )
+        -mip 1
+    ;
+    shelfButton
+        -enableCommandRepeat 1
+        -flexibleWidthType 3
+        -flexibleWidthValue 32
+        -enable 1
+        -width 35
+        -height 34
+        -manage 1
+        -visible 1
+        -preventOverride 0
+        -annotation "Color selected" 
+        -enableBackground 0
+        -backgroundColor 0 0 0 
+        -highlightColor 0.321569 0.521569 0.65098 
+        -align "center" 
+        -label "Color Selection" 
+        -labelOffset 0
+        -rotation 0
+        -flipX 0
+        -flipY 0
+        -useAlpha 1
+        -font "plainLabelFont" 
+        -overlayLabelColor 0.8 0.8 0.8 
+        -overlayLabelBackColor 0 0 0 0.5 
+        -image "C:/Users/mverclytte/Documents/maya/2024/prefs/icons/colors.png" 
+        -image1 "C:/Users/mverclytte/Documents/maya/2024/prefs/icons/colors.png" 
+        -style "iconOnly" 
+        -marginWidth 0
+        -marginHeight 1
+        -command "selection = shelf.utils.get_selection()\nfor obj in selection:\n\tshelf.utils.colorize(obj, \"yellow\")" 
+        -sourceType "python" 
+        -doubleClickCommand "selection = shelf.utils.get_selection()\nfor obj in selection:\n\tshelf.utils.colorize(obj, \"red\")" 
+        -commandRepeatable 1
+        -flat 1
+        -mi "BLUE" ( "selection = shelf.utils.get_selection()\nfor obj in selection:\n\tshelf.utils.colorize(obj, \"blue\")" )
+        -mip 0
+        -mi "GREEN" ( "selection = shelf.utils.get_selection()\nfor obj in selection:\n\tshelf.utils.colorize(obj, \"green\")" )
+        -mip 1
+        -mi "PINK" ( "selection = shelf.utils.get_selection()\nfor obj in selection:\n\tshelf.utils.colorize(obj, \"pink\")" )
+        -mip 2
+    ;
+    shelfButton
+        -enableCommandRepeat 1
+        -flexibleWidthType 3
+        -flexibleWidthValue 32
+        -enable 1
+        -width 35
+        -height 34
+        -manage 1
+        -visible 1
+        -preventOverride 0
+        -annotation "SCULPT ----------" 
+        -enableBackground 0
+        -backgroundColor 0 0 0 
+        -highlightColor 0.321569 0.521569 0.65098 
+        -align "center" 
+        -label "SCULPT ----------" 
+        -labelOffset 0
+        -rotation 0
+        -flipX 0
+        -flipY 0
+        -useAlpha 1
+        -font "plainLabelFont" 
+        -overlayLabelColor 0.8 0.8 0.8 
+        -overlayLabelBackColor 0 0 0 0.5 
+        -image "C:/Users/mverclytte/Documents/maya/2024/prefs/icons/separator.png" 
+        -image1 "C:/Users/mverclytte/Documents/maya/2024/prefs/icons/separator.png" 
+        -style "iconOnly" 
+        -marginWidth 0
+        -marginHeight 1
+        -sourceType "mel" 
+        -commandRepeatable 1
+        -flat 1
+    ;
+    shelfButton
+        -enableCommandRepeat 1
+        -flexibleWidthType 3
+        -flexibleWidthValue 32
+        -enable 1
+        -width 35
+        -height 34
+        -manage 1
+        -visible 1
+        -preventOverride 0
+        -annotation "Lift a surface" 
+        -enableBackground 0
+        -backgroundColor 0 0 0 
+        -highlightColor 0.321569 0.521569 0.65098 
+        -align "center" 
+        -label "Sculpt Tool" 
+        -labelOffset 0
+        -rotation 0
+        -flipX 0
+        -flipY 0
+        -useAlpha 1
+        -font "plainLabelFont" 
+        -overlayLabelColor 0.8 0.8 0.8 
+        -overlayLabelBackColor 0 0 0 0.5 
+        -image "Sculpt.png" 
+        -image1 "Sculpt.png" 
+        -style "iconOnly" 
+        -marginWidth 0
+        -marginHeight 1
+        -command "SetMeshSculptTool" 
+        -sourceType "mel" 
+        -doubleClickCommand "ShowMeshSculptToolOptions" 
+        -commandRepeatable 1
+        -flat 1
+    ;
+    shelfButton
+        -enableCommandRepeat 1
+        -flexibleWidthType 3
+        -flexibleWidthValue 32
+        -enable 1
+        -width 35
+        -height 34
+        -manage 1
+        -visible 1
+        -preventOverride 0
+        -annotation "Smooth the surface of a mesh." 
+        -enableBackground 0
+        -backgroundColor 0 0 0 
+        -highlightColor 0.321569 0.521569 0.65098 
+        -align "center" 
+        -label "Smooth Tool" 
+        -labelOffset 0
+        -rotation 0
+        -flipX 0
+        -flipY 0
+        -useAlpha 1
+        -font "plainLabelFont" 
+        -overlayLabelColor 0.8 0.8 0.8 
+        -overlayLabelBackColor 0 0 0 0.5 
+        -image "Smooth.png" 
+        -image1 "Smooth.png" 
+        -style "iconOnly" 
+        -marginWidth 0
+        -marginHeight 1
+        -command "SetMeshSmoothTool" 
+        -sourceType "mel" 
+        -doubleClickCommand "ShowMeshSmoothToolOptions" 
+        -commandRepeatable 1
+        -flat 1
+    ;
+    shelfButton
+        -enableCommandRepeat 1
+        -flexibleWidthType 3
+        -flexibleWidthValue 32
+        -enable 1
+        -width 35
+        -height 34
+        -manage 1
+        -visible 1
+        -preventOverride 0
+        -annotation "Smooth the surface of a mesh without changing its original shape." 
+        -enableBackground 0
+        -backgroundColor 0 0 0 
+        -highlightColor 0.321569 0.521569 0.65098 
+        -align "center" 
+        -label "Relax Tool" 
+        -labelOffset 0
+        -rotation 0
+        -flipX 0
+        -flipY 0
+        -useAlpha 1
+        -font "plainLabelFont" 
+        -overlayLabelColor 0.8 0.8 0.8 
+        -overlayLabelBackColor 0 0 0 0.5 
+        -image "Relax.png" 
+        -image1 "Relax.png" 
+        -style "iconOnly" 
+        -marginWidth 0
+        -marginHeight 1
+        -command "SetMeshRelaxTool" 
+        -sourceType "mel" 
+        -doubleClickCommand "ShowMeshRelaxToolOptions" 
+        -commandRepeatable 1
+        -flat 1
+    ;
+    shelfButton
+        -enableCommandRepeat 1
+        -flexibleWidthType 3
+        -flexibleWidthValue 32
+        -enable 1
+        -width 35
+        -height 34
+        -manage 1
+        -visible 1
+        -preventOverride 0
+        -annotation "Pull a single vertex along a surface in any direction" 
+        -enableBackground 0
+        -backgroundColor 0 0 0 
+        -highlightColor 0.321569 0.521569 0.65098 
+        -align "center" 
+        -label "Grab Tool" 
+        -labelOffset 0
+        -rotation 0
+        -flipX 0
+        -flipY 0
+        -useAlpha 1
+        -font "plainLabelFont" 
+        -overlayLabelColor 0.8 0.8 0.8 
+        -overlayLabelBackColor 0 0 0 0.5 
+        -image "Grab.png" 
+        -image1 "Grab.png" 
+        -style "iconOnly" 
+        -marginWidth 0
+        -marginHeight 1
+        -command "SetMeshGrabTool" 
+        -sourceType "mel" 
+        -doubleClickCommand "ShowMeshGrabToolOptions" 
+        -commandRepeatable 1
+        -flat 1
+    ;
+    shelfButton
+        -enableCommandRepeat 1
+        -flexibleWidthType 3
+        -flexibleWidthValue 32
+        -enable 1
+        -width 35
+        -height 34
+        -manage 1
+        -visible 1
+        -preventOverride 0
+        -annotation "Sharpen soft edges" 
+        -enableBackground 0
+        -backgroundColor 0 0 0 
+        -highlightColor 0.321569 0.521569 0.65098 
+        -align "center" 
+        -label "Pinch Tool" 
+        -labelOffset 0
+        -rotation 0
+        -flipX 0
+        -flipY 0
+        -useAlpha 1
+        -font "plainLabelFont" 
+        -overlayLabelColor 0.8 0.8 0.8 
+        -overlayLabelBackColor 0 0 0 0.5 
+        -image "Pinch.png" 
+        -image1 "Pinch.png" 
+        -style "iconOnly" 
+        -marginWidth 0
+        -marginHeight 1
+        -command "SetMeshPinchTool" 
+        -sourceType "mel" 
+        -doubleClickCommand "ShowMeshPinchToolOptions" 
+        -commandRepeatable 1
+        -flat 1
+    ;
+    shelfButton
+        -enableCommandRepeat 1
+        -flexibleWidthType 3
+        -flexibleWidthValue 32
+        -enable 1
+        -width 35
+        -height 34
+        -manage 1
+        -visible 1
+        -preventOverride 0
+        -annotation "Level a surface" 
+        -enableBackground 0
+        -backgroundColor 0 0 0 
+        -highlightColor 0.321569 0.521569 0.65098 
+        -align "center" 
+        -label "Flatten Tool" 
+        -labelOffset 0
+        -rotation 0
+        -flipX 0
+        -flipY 0
+        -useAlpha 1
+        -font "plainLabelFont" 
+        -overlayLabelColor 0.8 0.8 0.8 
+        -overlayLabelBackColor 0 0 0 0.5 
+        -image "Flatten.png" 
+        -image1 "Flatten.png" 
+        -style "iconOnly" 
+        -marginWidth 0
+        -marginHeight 1
+        -command "SetMeshFlattenTool" 
+        -sourceType "mel" 
+        -doubleClickCommand "ShowMeshFlattenToolOptions" 
+        -commandRepeatable 1
+        -flat 1
+    ;
+    shelfButton
+        -enableCommandRepeat 1
+        -flexibleWidthType 3
+        -flexibleWidthValue 32
+        -enable 1
+        -width 35
+        -height 34
+        -manage 1
+        -visible 1
+        -preventOverride 0
+        -annotation "Cut fine strokes into a surface" 
+        -enableBackground 0
+        -backgroundColor 0 0 0 
+        -highlightColor 0.321569 0.521569 0.65098 
+        -align "center" 
+        -label "Knife Tool" 
+        -labelOffset 0
+        -rotation 0
+        -flipX 0
+        -flipY 0
+        -useAlpha 1
+        -font "plainLabelFont" 
+        -overlayLabelColor 0.8 0.8 0.8 
+        -overlayLabelBackColor 0 0 0 0.5 
+        -image "Knife.png" 
+        -image1 "Knife.png" 
+        -style "iconOnly" 
+        -marginWidth 0
+        -marginHeight 1
+        -command "SetMeshKnifeTool" 
+        -sourceType "mel" 
+        -doubleClickCommand "ShowMeshKnifeToolOptions" 
+        -commandRepeatable 1
+        -flat 1
+    ;
+    shelfButton
+        -enableCommandRepeat 1
+        -flexibleWidthType 3
+        -flexibleWidthValue 32
+        -enable 1
+        -width 35
+        -height 34
+        -manage 1
+        -visible 1
+        -preventOverride 0
+        -annotation "Softly lift a surface." 
+        -enableBackground 0
+        -backgroundColor 0 0 0 
+        -highlightColor 0.321569 0.521569 0.65098 
+        -align "center" 
+        -label "Foamy Tool" 
+        -labelOffset 0
+        -rotation 0
+        -flipX 0
+        -flipY 0
+        -useAlpha 1
+        -font "plainLabelFont" 
+        -overlayLabelColor 0.8 0.8 0.8 
+        -overlayLabelBackColor 0 0 0 0.5 
+        -image "Foamy.png" 
+        -image1 "Foamy.png" 
+        -style "iconOnly" 
+        -marginWidth 0
+        -marginHeight 1
+        -command "SetMeshFoamyTool" 
+        -sourceType "mel" 
+        -doubleClickCommand "ShowMeshFoamyToolOptions" 
+        -commandRepeatable 1
+        -flat 1
+    ;
+    shelfButton
+        -enableCommandRepeat 1
+        -flexibleWidthType 3
+        -flexibleWidthValue 32
+        -enable 1
+        -width 35
+        -height 34
+        -manage 1
+        -visible 1
+        -preventOverride 0
+        -annotation "Inflate an area on a surface" 
+        -enableBackground 0
+        -backgroundColor 0 0 0 
+        -highlightColor 0.321569 0.521569 0.65098 
+        -align "center" 
+        -label "Bulge Tool" 
+        -labelOffset 0
+        -rotation 0
+        -flipX 0
+        -flipY 0
+        -useAlpha 1
+        -font "plainLabelFont" 
+        -overlayLabelColor 0.8 0.8 0.8 
+        -overlayLabelBackColor 0 0 0 0.5 
+        -image "Bulge.png" 
+        -image1 "Bulge.png" 
+        -style "iconOnly" 
+        -marginWidth 0
+        -marginHeight 1
+        -command "SetMeshBulgeTool" 
+        -sourceType "mel" 
+        -doubleClickCommand "ShowMeshBulgeToolOptions" 
+        -commandRepeatable 1
+        -flat 1
+    ;
+    shelfButton
+        -enableCommandRepeat 1
+        -flexibleWidthType 3
+        -flexibleWidthValue 32
+        -enable 1
+        -width 35
+        -height 34
+        -manage 1
+        -visible 1
+        -preventOverride 0
+        -annotation "Sculpt a geometry object" 
+        -enableBackground 0
+        -backgroundColor 0 0 0 
+        -highlightColor 0.321569 0.521569 0.65098 
+        -align "center" 
+        -label "Sculpt Geometry Tool" 
+        -labelOffset 0
+        -rotation 0
+        -flipX 0
+        -flipY 0
+        -useAlpha 1
+        -font "plainLabelFont" 
+        -overlayLabelColor 0.8 0.8 0.8 
+        -overlayLabelBackColor 0 0 0 0.5 
+        -image "putty.png" 
+        -image1 "putty.png" 
+        -style "iconOnly" 
+        -marginWidth 0
+        -marginHeight 1
+        -command "SculptGeometryTool" 
+        -sourceType "mel" 
+        -doubleClickCommand "SculptGeometryToolOptions" 
+        -commandRepeatable 1
+        -flat 1
+    ;
+    shelfButton
+        -enableCommandRepeat 1
+        -flexibleWidthType 3
+        -flexibleWidthValue 32
+        -enable 1
+        -width 35
+        -height 34
+        -manage 1
+        -visible 1
+        -preventOverride 0
+        -annotation "OUT MAYA ----------" 
+        -enableBackground 0
+        -backgroundColor 0 0 0 
+        -highlightColor 0.321569 0.521569 0.65098 
+        -align "center" 
+        -label "OUT MAYA ----------" 
+        -labelOffset 0
+        -rotation 0
+        -flipX 0
+        -flipY 0
+        -useAlpha 1
+        -font "plainLabelFont" 
+        -overlayLabelColor 0.8 0.8 0.8 
+        -overlayLabelBackColor 0 0 0 0.5 
+        -image "C:/Users/mverclytte/Documents/maya/2024/prefs/icons/separator.png" 
+        -image1 "C:/Users/mverclytte/Documents/maya/2024/prefs/icons/separator.png" 
+        -style "iconOnly" 
+        -marginWidth 0
+        -marginHeight 1
+        -sourceType "mel" 
+        -commandRepeatable 1
+        -flat 1
+    ;
+    shelfButton
+        -enableCommandRepeat 1
+        -flexibleWidthType 3
+        -flexibleWidthValue 32
+        -enable 1
+        -width 35
+        -height 34
+        -manage 1
+        -visible 1
+        -preventOverride 0
+        -annotation "Export options" 
+        -enableBackground 0
+        -backgroundColor 0 0 0 
+        -highlightColor 0.321569 0.521569 0.65098 
+        -align "center" 
+        -label "Export" 
+        -labelOffset 0
+        -rotation 0
+        -flipX 0
+        -flipY 0
+        -useAlpha 1
+        -font "plainLabelFont" 
+        -overlayLabelColor 0.8 0.8 0.8 
+        -overlayLabelBackColor 0 0 0 0.5 
+        -image "C:/Users/mverclytte/Documents/maya/2024/prefs/icons/export_file.png" 
+        -image1 "C:/Users/mverclytte/Documents/maya/2024/prefs/icons/export_file.png" 
+        -style "iconOnly" 
+        -marginWidth 0
+        -marginHeight 1
+        -sourceType "mel" 
+        -commandRepeatable 1
+        -flat 1
+        -mi "EXPORT ABC | asset/maya/autorig/proxy" ( "shelf.utils.export_alembic_from_rig_scene()" )
+        -mip 0
+    ;
+    shelfButton
+        -enableCommandRepeat 1
+        -flexibleWidthType 3
+        -flexibleWidthValue 32
+        -enable 1
+        -width 35
+        -height 34
+        -manage 1
+        -visible 1
+        -preventOverride 0
+        -annotation "OTHERS ----------" 
+        -enableBackground 0
+        -backgroundColor 0 0 0 
+        -highlightColor 0.321569 0.521569 0.65098 
+        -align "center" 
+        -label "OTHERS ----------" 
+        -labelOffset 0
+        -rotation 0
+        -flipX 0
+        -flipY 0
+        -useAlpha 1
+        -font "plainLabelFont" 
+        -overlayLabelColor 0.8 0.8 0.8 
+        -overlayLabelBackColor 0 0 0 0.5 
+        -image "C:/Users/mverclytte/Documents/maya/2024/prefs/icons/separator.png" 
+        -image1 "C:/Users/mverclytte/Documents/maya/2024/prefs/icons/separator.png" 
+        -style "iconOnly" 
+        -marginWidth 0
+        -marginHeight 1
+        -sourceType "mel" 
+        -commandRepeatable 1
+        -flat 1
+    ;
+
+} 
