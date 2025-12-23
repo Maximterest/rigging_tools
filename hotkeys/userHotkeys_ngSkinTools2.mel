@@ -1,0 +1,45 @@
+//Maya Preference 2024 (Release 1)
+//
+//
+
+//
+// The hotkey set
+//
+hotkeySet -source "Maya_Default" -current ngSkinTools2;
+//
+// The hotkey contexts and hotkeys
+//
+hotkey -keyShortcut "b" -ctl -sht -name ("");
+hotkey -keyShortcut "!" -name ("bs_oneNameCommand");
+hotkey -keyShortcut "t" -name ("ngskintools_2_ToggleOriginalMeshNameCommand");
+hotkey -keyShortcut "q" -ctl -alt -sht -name ("ngskintools_2_PaintNameCommand");
+hotkey -keyShortcut "d" -name ("ngskintools_2_CycleWeightsDisplayModeNameCommand");
+hotkey -keyShortcut "x" -ctl -name ("");
+hotkey -keyShortcut "!" -ctl -name ("bs_minusNameCommand");
+hotkeyCtx -type "Editor" -addClient "timeEditorPanel";
+hotkeyCtx -type "Editor" -addClient "profilerPanel";
+hotkeyCtx -type "Editor" -addClient "nodeEditorPanel";
+hotkeyCtx -type "Editor" -addClient "posePanel";
+hotkeyCtx -type "Editor" -addClient "hyperShadePanel";
+hotkeyCtx -type "Editor" -addClient "graphEditor";
+hotkeyCtx -type "Editor" -addClient "polyTexturePlacementPanel";
+hotkeyCtx -type "Editor" -addClient "hyperGraphPanel";
+hotkeyCtx -type "Editor" -addClient "shapePanel";
+hotkeyCtx -type "Editor" -addClient "outlinerPanel";
+hotkeyCtx -type "Tool" -addClient "texCutContext";
+hotkeyCtx -type "Tool" -addClient "ngst2PaintContext";
+hotkey -keyShortcut "b" -releaseName ("ngskintools_2_BrushSizeOffNameCommand");
+hotkey -keyShortcut "f" -ctl -name ("ngskintools_2_PaintFloodNameCommand");
+hotkey -keyShortcut "b" -name ("ngskintools_2_BrushSizeOnNameCommand");
+hotkey -keyShortcut "s" -name ("ngskintools_2_SampleInfluenceOnNameCommand");
+hotkey -keyShortcut "s" -releaseName ("ngskintools_2_SampleInfluenceOffNameCommand");
+hotkey -keyShortcut "h" -name ("ngskintools_2_ToggleHelpNameCommand");
+hotkey -keyShortcut "i" -name ("ngskintools_2_SetBrushIntensityNameCommand");
+hotkey -keyShortcut "f" -name ("ngskintools_2_ViewFitInfluenceNameCommand");
+hotkeyCtx -type "Tool" -addClient "sculptMeshCache";
+hotkeyCtx -type "Tool" -addClient "Unfold3DBrush";
+hotkeyCtx -type "Tool" -addClient "xgmIGBrush";
+hotkeyCtx -type "Tool" -addClient "SymmetrizeUVBrush";
+hotkeyCtx -type "Tool" -addClient "texSculptCacheContext";
+hotkeyCtx -type "Tool" -addClient "polyCutUV";
+hotkeyCtx -type "Tool" -addClient "bpDraw";
